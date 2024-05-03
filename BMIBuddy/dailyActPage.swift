@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 enum Anchor {
     case top, bottom
 }
@@ -24,7 +25,6 @@ struct dailyActPage: View {
     @Environment(\.colorScheme) private var scheme
     @State private var showAlert = false
     @State private var redirectToCalculatePage = false
-    @Binding var username: String
     var body: some View {
         ZStack {
             gradientColor
@@ -141,7 +141,7 @@ struct dailyActPage: View {
             )
         }
         // NavigationLink yang diaktifkan saat redirectToCalculatePage adalah true
-        NavigationLink(destination: calculatePage(selectedOption: $selection, gender: gender,username: $username), isActive: $redirectToCalculatePage) {
+        NavigationLink(destination: calculatePage(selectedOption: $selection, gender: gender), isActive: $redirectToCalculatePage) {
             EmptyView()
         }
         .hidden()
@@ -187,7 +187,7 @@ struct dailyActPage: View {
     
     
 #Preview {
-    dailyActPage(gender: "male", hint: "lala", options: ["lala"], selection: .constant("lala"), username: .constant("username"))
+    dailyActPage(gender: "male", hint: "lala", options: ["lala"], selection: .constant("lala"))
 }
 
 

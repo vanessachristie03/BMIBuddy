@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct genderPage: View {
     @State private var isMaleSelected = false
@@ -13,7 +14,7 @@ struct genderPage: View {
     @State private var showAlert = false
     @State private var selectedGender: String?
     @State private var selectedOption: String?
-    @Binding var username: String
+
     var body: some View {
   
         ZStack {
@@ -21,10 +22,6 @@ struct genderPage: View {
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
-                Text("Welcome, \(username)!")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .padding(.top, -30.0)
                 Text("Please choose your sex")
                     .font(.title)
                     .fontWeight(.semibold)
@@ -88,7 +85,7 @@ struct genderPage: View {
                     }
                 }
  
-                NavigationLink(destination: dailyActPage(gender: selectedGender ?? "", hint: "Pick one!", options: ["Never", "Rarely", "Normal", "Frequently", "Very Often"], selection: $selectedOption, username: $username))  {
+                NavigationLink(destination: dailyActPage(gender: selectedGender ?? "", hint: "Pick one!", options: ["Never", "Rarely", "Normal", "Frequently", "Very Often"], selection: $selectedOption))  {
                     Text("Continue")
                         .frame(width: 350, height: 50)
                         .foregroundColor(.white)
@@ -124,5 +121,5 @@ struct genderPage: View {
     }
 }
 #Preview {
-    genderPage(username:.constant("username"))
+    genderPage()
 }

@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct calculatePage: View {
+    @Environment(\.modelContext) private var context
+    @Query private var items: [BMIdata]
     
     @State private var weight: String = "50"
     @State private var tall: String = "150"
@@ -24,10 +27,10 @@ struct calculatePage: View {
     var gender: String
     @State private var bmrResult: Double = 0
     @State private var selectedActivityMultiplier: Double = 0
-    @State private var calculatedData: String = ""
+    @State private var calculatedData: String = UserDefaults.standard.string(forKey: "calculatedData") ?? ""
     @State private var isShowingMainPage = false
-    @Binding var username: String
     @State private var bmiDescriptionValue: String = ""
+   
     
     var body: some View {
         ZStack {
@@ -252,6 +255,7 @@ struct calculatePage: View {
                 .padding()
             }
             
+            
             if isShowingResult {
                 Color.black.opacity(0.5)
                     .edgesIgnoringSafeArea(.all)
@@ -302,10 +306,26 @@ struct calculatePage: View {
                         }
                         .padding([.leading, .bottom, .trailing], 20.0)
                         Button("OK") {
+                            let newData = BMIdata(timestamp: Date(), bmrResult: bmrResult, bmiResult: bmiResult, idealWeight: idealWeight, bmiDescriptionValue: bmiDescriptionValue, selectedOption: selectedOption, gender: gender)
+
+                            do {
+                                try context.insert(newData)
+                                try context.save()
+                                print("Data berhasil disimpan.")
+                            } catch {
+                                print("Gagal menyimpan data: \(error.localizedDescription)")
+                            }
+
                             calculatedData = "\(bmiResult), \(idealWeight), \(String(format: "%.2f", bmrResult))"
+
                             print("Calculated data: \(calculatedData)")
                             isShowingMainPage = true
+                            
                         }
+                        
+
+
+
 
                         .padding()
                         .foregroundColor(.white)
@@ -315,8 +335,9 @@ struct calculatePage: View {
 
 
                     .fullScreenCover(isPresented: $isShowingMainPage) {
-                        MainPage(calculatedData: $calculatedData,username: $username, bmrResult:$bmrResult,bmiResult:$bmiResult,idealWeight:$idealWeight, bmiDescriptionValue: $bmiDescriptionValue, dataNumber:1)
-                            }
+                        MainPage(calculatedData: $calculatedData, bmrResult:$bmrResult,bmiResult:$bmiResult,idealWeight:$idealWeight, bmiDescriptionValue: $bmiDescriptionValue, gender: gender)
+                    }
+
                     .frame(width: 300, height: 500)
                     .background(Color.white)
                     .cornerRadius(16)
@@ -408,5 +429,5 @@ func calculateIdealWeight(tall: Double, gender: String) -> Double {
                 get: { "lala" },
                 set: { _ in }
             )
-    return calculatePage(selectedOption: selectedOption, gender: "male",username: .constant("username"))
+    return calculatePage(selectedOption: selectedOption, gender: "male")
 }

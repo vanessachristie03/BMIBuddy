@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Binding var calculatedData: String
+    @Binding var bmrResult: Double
+    @Binding var bmiResult: String
+    @Binding var idealWeight: String
+    @Binding var bmiDescriptionValue: String
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -32,7 +38,8 @@ struct ContentView: View {
                             .multilineTextAlignment(.center)
                             .padding([.top, .leading, .trailing], 3.0)
                         Spacer()
-                        NavigationLink(destination: signIn()) {
+                        NavigationLink(destination: MainPage(calculatedData: $calculatedData, bmrResult: $bmrResult, bmiResult: $bmiResult, idealWeight: $idealWeight, bmiDescriptionValue: $bmiDescriptionValue, gender: "Gender"))
+ {
                             Text("Start")
                                 .frame(width: 200, height: 50)
                                 .foregroundColor(.white)
@@ -43,6 +50,7 @@ struct ContentView: View {
                                         .stroke(Color.white, lineWidth: 1)
                                 )
                         }
+                        
                     }
                     .background(
                         GeometryReader { geometry in
@@ -67,6 +75,8 @@ struct ContentView: View {
         LinearGradient(gradient: Gradient(colors: [Color(hex: "A2D0DC"), Color.white]), startPoint: .top, endPoint: .bottom)
     }
 }
+
+
 extension Color {
     init(hex: String) {
         let scanner = Scanner(string: hex)
@@ -86,5 +96,5 @@ extension Color {
 
 
 #Preview {
-    ContentView()
+    ContentView(calculatedData:.constant("calculatedData"),bmrResult:.constant(0.0), bmiResult:.constant("calculatedData"),idealWeight: .constant("calculatedData"), bmiDescriptionValue: .constant("calculatedData"))
 }

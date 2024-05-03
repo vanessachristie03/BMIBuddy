@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct StartPage: View {
     @State private var isActive = false
@@ -37,7 +38,7 @@ struct StartPage: View {
             }
         }
         .fullScreenCover(isPresented: $isActive) {
-            ContentView()
+            ContentView(calculatedData:.constant("calculatedData"),bmrResult:.constant(0.0), bmiResult:.constant("calculatedData"),idealWeight: .constant("calculatedData"), bmiDescriptionValue: .constant("calculatedData"))
         }
     }
     

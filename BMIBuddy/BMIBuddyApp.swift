@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct BMIBuddyApp: App {
@@ -13,5 +14,6 @@ struct BMIBuddyApp: App {
         WindowGroup {
             StartPage()
         }
+        .modelContainer(for: BMIdata.self)
     }
 }

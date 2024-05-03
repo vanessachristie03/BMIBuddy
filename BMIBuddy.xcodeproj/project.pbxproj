@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1A90CA1F2BE0D64700E9CAA5 /* coba.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A90CA1E2BE0D64700E9CAA5 /* coba.swift */; };
 		1A90CA212BE259D700E9CAA5 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A90CA202BE259D700E9CAA5 /* MainPage.swift */; };
+		1A90CA232BE3B42100E9CAA5 /* BMIdata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A90CA222BE3B42100E9CAA5 /* BMIdata.swift */; };
 		1AB9153A2BD94645000DFD2E /* BMIBuddyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB915392BD94645000DFD2E /* BMIBuddyApp.swift */; };
 		1AB9153C2BD94645000DFD2E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB9153B2BD94645000DFD2E /* ContentView.swift */; };
 		1AB9153E2BD94649000DFD2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AB9153D2BD94649000DFD2E /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		1A90CA1E2BE0D64700E9CAA5 /* coba.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coba.swift; sourceTree = "<group>"; };
 		1A90CA202BE259D700E9CAA5 /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
+		1A90CA222BE3B42100E9CAA5 /* BMIdata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIdata.swift; sourceTree = "<group>"; };
 		1AB915362BD94645000DFD2E /* BMIBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BMIBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AB915392BD94645000DFD2E /* BMIBuddyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIBuddyApp.swift; sourceTree = "<group>"; };
 		1AB9153B2BD94645000DFD2E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				1A90CA1E2BE0D64700E9CAA5 /* coba.swift */,
 				1AB915A42BDA7A72000DFD2E /* dailyActPage.swift */,
 				1AB915A82BDB8BD3000DFD2E /* calculatePage.swift */,
+				1A90CA222BE3B42100E9CAA5 /* BMIdata.swift */,
 				1A90CA202BE259D700E9CAA5 /* MainPage.swift */,
 				1AB9159F2BDA1D62000DFD2E /* signIn.swift */,
 				1AB9153D2BD94649000DFD2E /* Assets.xcassets */,
@@ -283,6 +286,7 @@
 				1AB9153C2BD94645000DFD2E /* ContentView.swift in Sources */,
 				1AB915A92BDB8BD3000DFD2E /* calculatePage.swift in Sources */,
 				1A90CA212BE259D700E9CAA5 /* MainPage.swift in Sources */,
+				1A90CA232BE3B42100E9CAA5 /* BMIdata.swift in Sources */,
 				1A90CA1F2BE0D64700E9CAA5 /* coba.swift in Sources */,
 				1AB915A32BDA7845000DFD2E /* genderPage.swift in Sources */,
 				1AB9159E2BDA1A3E000DFD2E /* StartPage.swift in Sources */,
